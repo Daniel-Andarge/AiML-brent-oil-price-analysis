@@ -65,8 +65,7 @@ def correct_data_types(df):
     Returns:
         pandas.DataFrame: The updated dataframe with corrected data types.
     """
-    df['date'] = pd.to_datetime(df['date'])
-    df['purchase_time'] = pd.to_datetime(df['purchase_time'])
+    df['Date'] = pd.to_datetime(df['Date'])
     return df
 
 
