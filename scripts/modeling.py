@@ -5,6 +5,19 @@ from statsmodels.tsa.arima.model import ARIMA
 from statsmodels.tsa.stattools import adfuller
 from sklearn.metrics import mean_squared_error, mean_absolute_error
 
+import plotly.graph_objects as go
+from sklearn.preprocessing import MinMaxScaler
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import LSTM, Dense, Dropout
+from sklearn.metrics import mean_squared_error, mean_absolute_error 
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from statsmodels.tsa.arima.model import ARIMA
+from sklearn.metrics import mean_squared_error, mean_absolute_error
+
 def brent_oil_arima_forecast(brent_oil_df):
     """
     Fits an ARIMA model to the Brent oil prices data, generates forecasts, and assesses the forecast accuracy.
@@ -15,7 +28,10 @@ def brent_oil_arima_forecast(brent_oil_df):
     Returns:
     None
     """
-  
+
+    
+    # Set general aesthetics for the plots
+    sns.set_style("whitegrid")
     if 'Price' not in brent_oil_df.columns:
         raise ValueError("DataFrame must contain a 'Price' column")
 
@@ -33,20 +49,21 @@ def brent_oil_arima_forecast(brent_oil_df):
     
     # Perform diagnostic checks 
     residuals = model_fit.resid
-    fig = go.Figure()
-    fig.add_trace(go.Scatter(x=residuals.index, y=residuals.values, mode='lines', name='Residuals'))
-    fig.update_layout(title='ARIMA Model Residuals',
-                      xaxis_title='Date',
-                      yaxis_title='Residuals',
-                      showlegend=True,
-                      template='plotly_dark')
-    fig.show()
+    
+    # Plot residuals using Matplotlib and Seaborn
+    plt.figure(figsize=(10, 6))
+    sns.lineplot(x=residuals.index, y=residuals.values)
+    plt.title('ARIMA Model Residuals')
+    plt.xlabel('Date')
+    plt.ylabel('Residuals')
+    plt.grid(True)
+    plt.show()
     
     # Generate forecasts
     forecast_periods = 60  
     forecasts = model_fit.get_forecast(steps=forecast_periods).predicted_mean
     
-  
+    # Get actual prices for comparison
     actual_prices = brent_oil_df['Price'].iloc[-forecast_periods:]
     if len(actual_prices) < forecast_periods:
         raise ValueError("Not enough data to compare forecasts. Check the forecast_periods or data length.")
@@ -58,40 +75,17 @@ def brent_oil_arima_forecast(brent_oil_df):
     print(f'Mean Squared Error: {mse:.2f}')
     print(f'Mean Absolute Error: {mae:.2f}')
     
-    # Plot the actual and forecasted prices 
-    fig = go.Figure()
-    fig.add_trace(go.Scatter(x=brent_oil_df.index, y=brent_oil_df['Price'], mode='lines', name='Actual Prices'))
-    fig.add_trace(go.Scatter(x=actual_prices.index, y=forecasts[:len(actual_prices)], mode='lines', name='Forecasted Prices',
-                             line=dict(dash='dash', color='red')))
-    fig.update_layout(title='Brent Oil Prices: Actual vs Forecasted',
-                      xaxis_title='Date',
-                      yaxis_title='Price (USD/barrel)',
-                      showlegend=True,
-                      template='plotly_dark')
-    fig.show()
+    # Plot the actual and forecasted prices using Matplotlib
+    plt.figure(figsize=(10, 6))
+    plt.plot(brent_oil_df.index, brent_oil_df['Price'], label='Actual Prices')
+    plt.plot(actual_prices.index, forecasts[:len(actual_prices)], linestyle='--', color='red', label='Forecasted Prices')
+    plt.title('Brent Oil Prices: Actual vs Forecasted')
+    plt.xlabel('Date')
+    plt.ylabel('Price (USD/barrel)')
+    plt.legend()
+    plt.grid(True)
+    plt.show()
 
-
-
-import os
-import pandas as pd
-import numpy as np
-import plotly.graph_objects as go
-from sklearn.preprocessing import MinMaxScaler
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import LSTM, Dense, Dropout
-from sklearn.metrics import mean_squared_error, mean_absolute_error
-
-def load_data(file_path):
-    """
-    Load data from a Parquet file.
-    
-    Parameters:
-    file_path (str): Path to the Parquet file.
-    
-    Returns:
-    pandas.DataFrame: Loaded DataFrame.
-    """
-    return pd.read_parquet(file_path)
 
 def prepare_data(df, look_back=1):
     """
