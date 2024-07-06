@@ -14,13 +14,26 @@ This project analyzes Brent oil prices from 1987-2022, detecting structural chan
 
 ## Statistical and Econometric Models to Refine the Analysis
 
-## Other Potential Factors Influencing Oil Prices
+#### ARIMA model to the Brent oil prices data
+
+<img src="https://github.com/Daniel-Andarge/AiML-brent-oil-price-analysis/blob/main/assets/model/ARIMAModelResiduals.png" alt="ARIMAplot" width="600"/>
+
+#### LSTM (Long Short-Term Memory) Model
+
+The training and validation loss plot
+<img src="https://github.com/Daniel-Andarge/AiML-brent-oil-price-analysis/blob/main/assets/model/ltsm_loss_plot.png" alt="ltsm plot" width="600"/>
+
+The Actual vs Predicted prices plot
+<img src="https://github.com/Daniel-Andarge/AiML-brent-oil-price-analysis/blob/main/assets/model/actual_vs_pridiction_plot.png" alt="ltsm plot" width="600"/>
+
+## Other Potential Factors Influencing Oil Price
 
 #### Correlation between GDP growth rates of major economies and oil prices
 
-<img src="https://github.com/Daniel-Andarge/AiML-financial-fraud-detection-model/blob/main/assets/shap-lime/summryPlot.png" alt="summary plot" width="600"/>
+<img src="https://github.com/Daniel-Andarge/AiML-brent-oil-price-analysis/blob/main/assets/eda/corre_btn_gdp_and_oil.png" alt="correlation plot" width="600"/>
 
 Brent oil prices and GDP growth rates over time
+<img src="https://github.com/Daniel-Andarge/AiML-brent-oil-price-analysis/blob/main/assets/eda/brent_oil_gdp_over_time.png" alt="correlation plot" width="600"/>
 
 ## Contributing
 
