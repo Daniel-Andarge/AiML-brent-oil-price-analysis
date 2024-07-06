@@ -27,7 +27,6 @@ def plot_brent_oil_prices(df):
     sns.lineplot(x=df.index, y=df['Price'])
     plt.title('Brent Oil Prices Over Time')
 
-    # Format the date labels on the x-axis
     plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
     plt.xticks(rotation=45)
 
@@ -114,7 +113,7 @@ def visualize_acf_pacf(brent_oil_df, diff_level=1):
     """
         # Set general aesthetics for the plots
     sns.set_style("whitegrid")
-    # Perform differencing if required
+ 
     if diff_level > 0:
         brent_oil_diff = brent_oil_df['Price'].diff(periods=diff_level).dropna()
     else:
@@ -135,6 +134,50 @@ def visualize_acf_pacf(brent_oil_df, diff_level=1):
     plt.xlabel('Lag')
     plt.ylabel('Partial Autocorrelation')
     plt.show()
+
+
+
+def analyze_gdp_and_oil_prices(merged_data):
+    """
+    Analyzes and visualizes the correlation between GDP growth rates and Brent oil prices.
+
+    Parameters:
+    merged_data (pd.DataFrame): The merged dataframe containing GDP growth rates and Brent oil prices.
+                                It should have 'Price' column for Brent oil prices and GDP growth rates for countries as columns.
+
+    """
+    # Set general aesthetics for the plots
+    sns.set_style("whitegrid")
+
+    correlation_matrix = merged_data.corr()
+
+    print(correlation_matrix)
+
+    plt.figure(figsize=(14, 7))
+    sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', vmin=-1, vmax=1)
+    plt.title('Correlation Matrix between GDP Growth Rates and Brent Oil Prices')
+    plt.show()
+
+    fig, ax1 = plt.subplots(figsize=(14, 7))
+
+    ax1.set_xlabel('Date')
+    ax1.set_ylabel('Brent Oil Price (USD)', color='tab:blue')
+    ax1.plot(merged_data.index, merged_data['Price'], label='Brent Oil Price', color='tab:blue')
+    ax1.tick_params(axis='y', labelcolor='tab:blue')
+
+    ax2 = ax1.twinx()
+    ax2.set_ylabel('GDP Growth Rate (%)', color='tab:green')
+    for country in merged_data.columns:
+        if country != 'Price':  
+            ax2.plot(merged_data.index, merged_data[country], label=f'{country} GDP Growth Rate', linestyle='--')
+    ax2.tick_params(axis='y', labelcolor='tab:green')
+
+    fig.tight_layout()
+    fig.legend(loc='upper left', bbox_to_anchor=(0.1, 0.9))
+    plt.title('Brent Oil Prices and GDP Growth Rates Over Time')
+    plt.show()
+
+
 
 
 
