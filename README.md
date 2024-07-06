@@ -16,7 +16,11 @@ This project analyzes Brent oil prices from 1987-2022, detecting structural chan
 
 ## Other Potential Factors Influencing Oil Prices
 
-Utilized reliable sources such as World Bank, IMF, IEA, and industry reports to gather external datasets
+#### Correlation between GDP growth rates of major economies and oil prices
+
+<img src="https://github.com/Daniel-Andarge/AiML-financial-fraud-detection-model/blob/main/assets/shap-lime/summryPlot.png" alt="summary plot" width="600"/>
+
+Brent oil prices and GDP growth rates over time
 
 ## Contributing
 
