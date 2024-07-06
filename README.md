@@ -16,12 +16,12 @@ This project analyzes Brent oil prices from 1987-2022, detecting structural chan
 
 #### ARIMA model to the Brent oil prices data
 
-<img src="https://github.com/Daniel-Andarge/AiML-brent-oil-price-analysis/blob/main/assets/model/ARIMAModelResiduals.png" alt="ARIMAplot" width="600"/>
+<img src="https://github.com/Daniel-Andarge/AiML-brent-oil-price-analysis/blob/main/assets/model/ARIMAModelResiduals.png" alt="ARIMAplot" />
 
 #### LSTM (Long Short-Term Memory) Model
 
 The training and validation loss plot
-<img src="https://github.com/Daniel-Andarge/AiML-brent-oil-price-analysis/blob/main/assets/model/ltsm_loss_plot.png" alt="ltsm plot" width="600"/>
+<img src="https://github.com/Daniel-Andarge/AiML-brent-oil-price-analysis/blob/main/assets/model/ltsm_loss_plot.png" alt="ltsm plot" />
 
 The Actual vs Predicted prices plot
 <img src="https://github.com/Daniel-Andarge/AiML-brent-oil-price-analysis/blob/main/assets/model/actual_vs_pridiction_plot.png" alt="ltsm plot" width="600"/>
