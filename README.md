@@ -48,6 +48,12 @@ Filtering the data points after 2012 and analyzing the correlation
 
 <img src="https://github.com/Daniel-Andarge/AiML-brent-oil-price-analysis/blob/main/assets/eda/usd_oil_price_time.png" alt="correlation plot" />
 
+## Analyzing growth in renewable energy sources on oil demand and prices.
+
+<img src="https://github.com/Daniel-Andarge/AiML-brent-oil-price-analysis/blob/main/assets/eda/corr_oil_renawable.png" alt="correlation plot" width="600"/>
+
+<img src="https://github.com/Daniel-Andarge/AiML-brent-oil-price-analysis/blob/main/assets/model/reg_line_oil_renawable.png" alt="correlation plot" />
+
 ## Contributing
 
 Contributions are welcome! Please fork the repository and submit a pull request.
