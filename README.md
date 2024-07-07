@@ -46,7 +46,7 @@ Filtering the data points after 2012 and analyzing the correlation
 
 <img src="https://github.com/Daniel-Andarge/AiML-brent-oil-price-analysis/blob/main/assets/eda/corr_matrix4_usd.png" alt="correlation plot" width="600"/>
 
-<img src="https://github.com/Daniel-Andarge/AiML-brent-oil-price-analysis/blob/main/assets/eda/usd_oil_price_time.png" alt="correlation plot" width="600"/>
+<img src="https://github.com/Daniel-Andarge/AiML-brent-oil-price-analysis/blob/main/assets/eda/usd_oil_price_time.png" alt="correlation plot" />
 
 ## Contributing
 
