@@ -35,6 +35,19 @@ The Actual vs Predicted prices plot
 Brent oil prices and GDP growth rates over time
 <img src="https://github.com/Daniel-Andarge/AiML-brent-oil-price-analysis/blob/main/assets/eda/brent_oil_gdp_over_time.png" alt="correlation plot" />
 
+#### Correlation between Unemployment rates & Oil consumption patterns
+
+Filtering the data points after 2012 and analyzing the correlation
+<img src="https://github.com/Daniel-Andarge/AiML-brent-oil-price-analysis/blob/main/assets/eda/corr_matrix3_2012.png" alt="correlation plot" width="600"/>
+
+<img src="https://github.com/Daniel-Andarge/AiML-brent-oil-price-analysis/blob/main/assets/eda/umemp_vs_oil_time_2012.png" alt="correlation plot" />
+
+#### Analyzing the Effect of currency fluctuations (the USD) , on oil prices
+
+<img src="https://github.com/Daniel-Andarge/AiML-brent-oil-price-analysis/blob/main/assets/eda/corr_matrix4_usd.png" alt="correlation plot" width="600"/>
+
+<img src="https://github.com/Daniel-Andarge/AiML-brent-oil-price-analysis/blob/main/assets/eda/usd_oil_price_time.png" alt="correlation plot" width="600"/>
+
 ## Contributing
 
 Contributions are welcome! Please fork the repository and submit a pull request.
