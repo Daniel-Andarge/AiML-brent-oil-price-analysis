@@ -8,6 +8,7 @@ from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 from statsmodels.tsa.arima.model import ARIMA
 from statsmodels.tsa.stattools import adfuller
 from sklearn.metrics import mean_squared_error, mean_absolute_error
+import statsmodels.api as sm
 
 def plot_brent_oil_prices(df):
     """
@@ -261,6 +262,116 @@ def analyze_exchange_rates_and_oil_prices(merged_df):
     fig.legend(loc='upper left', bbox_to_anchor=(0.1, 0.9))
     plt.title('USD Exchange Rate (Close) and Oil Prices Over Time')
     plt.show()
+
+
+
+def analyze_renewable_energy_impact(df):
+    """
+    Analyzes the impact of renewable energy developments on oil prices using econometric models.
+    
+    Parameters:
+    - df (DataFrame): Merged dataset containing columns 'Date', 'Renewable_Share', 'Oil_Price'.
+    
+    Returns:
+    - Results summary of the VAR model.
+    """
+
+          # Set general aesthetics for the plots
+    sns.set_style("whitegrid")
+    # Ensure 'Date' column is in datetime format and set as index
+    df['Date'] = pd.to_datetime(df['Date'])
+    df.set_index('Date', inplace=True)
+    
+    # Check for missing values
+    if df.isnull().any().any():
+        raise ValueError("Dataset contains missing values. Please handle them before analysis.")
+    
+    # VAR Model Setup
+    model = sm.tsa.VAR(df[['Oil_Price','Renewable_Share']])
+    
+    # Select lag order using AIC criterion
+    best_lag_order = model.select_order().aic
+    
+    # Fit the VAR model with selected lag order
+    results = model.fit(best_lag_order)
+    
+    # Summary of VAR model
+    print(results.summary())
+    
+    # Granger Causality Test
+    granger_results = results.test_causality( 'Oil_Price','Renewable_Share', kind='f')
+    print("\nGranger Causality Test:")
+    print(granger_results)
+    
+    # Impulse Response Analysis
+    irf = results.irf(10)  
+    irf.plot(orth=False)
+    plt.title('Impulse Response Functions')
+    plt.show()
+
+
+
+
+def analyze_renewable_energy_effect_on_oil_price(df):
+    """
+    Analyze how growth in renewable energy share (Renewable_Share) affects oil prices (Oil_Price).
+    
+    Parameters:
+    - df (DataFrame): Dataset containing columns 'Date', 'Renewable_Share', and 'Oil_Price'.
+    
+    Returns:
+    - None (plots and prints results)
+    """
+
+    df['Date'] = pd.to_datetime(df['Date'])
+    df.set_index('Date', inplace=True)
+    
+    # Check for missing values
+    if df.isnull().any().any():
+        raise ValueError("Dataset contains missing values. Please handle them before analysis.")
+    
+    # Correlation Analysis
+    correlation_matrix = df[['Renewable_Share', 'Oil_Price']].corr()
+    print("Correlation Matrix:")
+    print(correlation_matrix)
+    
+    # Plotting the correlation matrix
+    plt.figure(figsize=(8, 6))
+    plt.matshow(correlation_matrix, cmap='viridis', fignum=1)
+    plt.colorbar()
+    plt.xticks(range(len(correlation_matrix.columns)), correlation_matrix.columns, rotation='vertical')
+    plt.yticks(range(len(correlation_matrix.columns)), correlation_matrix.columns)
+    plt.title('Correlation Matrix of Renewable_Share and Oil_Price')
+    plt.show()
+    
+    # Regression Analysis
+    X = df['Renewable_Share']
+    y = df['Oil_Price']
+    
+    X = sm.add_constant(X)  
+    model = sm.OLS(y, X)
+    results = model.fit()
+    print("\nRegression Results:")
+    print(results.summary())
+    
+    # Plotting regression line
+    plt.figure(figsize=(10, 6))
+    plt.scatter(df['Renewable_Share'], df['Oil_Price'], color='blue', label='Data Points')
+    plt.plot(df['Renewable_Share'], results.predict(), color='red', linewidth=3, label='Regression Line')
+    plt.title('Renewable_Share vs Oil_Price')
+    plt.xlabel('Renewable_Share')
+    plt.ylabel('Oil_Price')
+    plt.legend()
+    plt.grid(True)
+    plt.show()
+    
+    # Time-Series Analysis (Granger Causality Test)
+    lag_order = 3  
+    granger_results = sm.tsa.stattools.grangercausalitytests(df[['Renewable_Share', 'Oil_Price']], lag_order)
+    print("\nGranger Causality Test Results:")
+    for lag in range(1, lag_order+1):
+        print(f"Lag Order = {lag}")
+        print(granger_results[lag][0])  
 
 
 
