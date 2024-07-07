@@ -60,7 +60,7 @@ def brent_oil_arima_forecast(brent_oil_df):
     plt.show()
     
     # Generate forecasts
-    forecast_periods = 60  
+    forecast_periods = 10  
     forecasts = model_fit.get_forecast(steps=forecast_periods).predicted_mean
     
     # Get actual prices for comparison
