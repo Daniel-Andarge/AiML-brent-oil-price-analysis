@@ -180,4 +180,90 @@ def analyze_gdp_and_oil_prices(merged_data):
 
 
 
+def analyze_unemployment_and_oil_consumption(merged_df):
+    """
+    Analyzes and visualizes the relationship between unemployment rates and oil consumption patterns.
+
+    Parameters:
+    merged_df (pd.DataFrame): The merged dataframe containing world unemployment rates and oil consumption data.
+                              It should have 'World_x' for world unemployment rates and 'World_y' for oil consumption.
+    """
+    # Set general aesthetics for the plots
+    sns.set_style("whitegrid")
+   
+    correlation_matrix = merged_df[['World_x', 'World_y']].corr()
+
+  
+    print("Correlation Matrix:")
+    print(correlation_matrix)
+
+
+    plt.figure(figsize=(8, 6))
+    sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', vmin=-1, vmax=1)
+    plt.title('Correlation Matrix between World Unemployment Rates and Oil Consumption')
+    plt.show()
+
+    # Plot World Unemployment Rates and Oil Consumption over time
+    fig, ax1 = plt.subplots(figsize=(14, 7))
+
+    ax1.set_xlabel('Date')
+    ax1.set_ylabel('World Unemployment Rate (%)', color='tab:blue')
+    ax1.plot(merged_df.index, merged_df['World_x'], label='World Unemployment Rate', color='tab:blue')
+    ax1.tick_params(axis='y', labelcolor='tab:blue')
+
+    ax2 = ax1.twinx()
+    ax2.set_ylabel('World Oil Consumption (Million Barrels per Day)', color='tab:green')
+    ax2.plot(merged_df.index, merged_df['World_y'], label='World Oil Consumption', color='tab:green')
+    ax2.tick_params(axis='y', labelcolor='tab:green')
+
+    fig.tight_layout()
+    fig.legend(loc='upper left', bbox_to_anchor=(0.1, 0.9))
+    plt.title('World Unemployment Rates and Oil Consumption Over Time')
+    plt.show()
+
+
+def analyze_exchange_rates_and_oil_prices(merged_df):
+    """
+    Analyzes and visualizes the relationship between exchange rates (USD) and oil prices.
+
+    Parameters:
+    merged_df (pd.DataFrame): The merged dataframe containing exchange rates (USD) and oil prices.
+                              It should have 'Close' for exchange rates and 'Price' for oil prices.
+    """
+    
+      # Set general aesthetics for the plots
+    sns.set_style("whitegrid")
+    correlation_matrix = merged_df[['Close', 'Price']].corr()
+
+    print("\nCorrelation Matrix:")
+    print(correlation_matrix)
+
+    # Visualize the correlation matrix
+    plt.figure(figsize=(8, 6))
+    sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', vmin=-1, vmax=1)
+    plt.title('Correlation Matrix between USD Exchange Rate (Close) and Oil Prices')
+    plt.show()
+
+    # Plot Exchange Rate and Oil Prices over time
+    fig, ax1 = plt.subplots(figsize=(14, 7))
+
+    ax1.set_xlabel('Date')
+    ax1.set_ylabel('USD Exchange Rate (Close)', color='tab:blue')
+    ax1.plot(merged_df.index, merged_df['Close'], label='USD Exchange Rate (Close)', color='tab:blue')
+    ax1.tick_params(axis='y', labelcolor='tab:blue')
+
+    ax2 = ax1.twinx()
+    ax2.set_ylabel('Oil Price (USD per Barrel)', color='tab:green')
+    ax2.plot(merged_df.index, merged_df['Price'], label='Oil Price', color='tab:green')
+    ax2.tick_params(axis='y', labelcolor='tab:green')
+
+    fig.tight_layout()
+    fig.legend(loc='upper left', bbox_to_anchor=(0.1, 0.9))
+    plt.title('USD Exchange Rate (Close) and Oil Prices Over Time')
+    plt.show()
+
+
+
+
+
 
