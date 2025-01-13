@@ -4,11 +4,12 @@ This project analyzes Brent oil prices from 1987-2022, detecting structural chan
 
 ## Table of Contents
 1. [Project Objective](#project-objective)
-2. [Exploratory Data Analysis EDA](#exploratory-data-analysis-eda)
-3. [Statistical and Econometric Models to Refine the Analysis](#statistical-and-econometric-models-to-refine-the-analysis)
-4. [Other Potential Factors Influencing Oil Prices](#other-potential-factors-influencing-oil-prices)
-5. [Contributing](#contributing)
-6. [License](#license)
+2. [Technologies and Tools Used](#technologies-and-tools-used)
+3. [Exploratory Data Analysis EDA](#exploratory-data-analysis-eda)
+4. [Statistical and Econometric Models to Refine the Analysis](#statistical-and-econometric-models-to-refine-the-analysis)
+5. [Other Potential Factors Influencing Oil Prices](#other-potential-factors-influencing-oil-prices)
+6. [Contributing](#contributing)
+7. [License](#license)
 
 ## Project Objective
 The primary objective of this project is to analyze how significant events such as political decisions, conflicts in oil-producing regions, global economic sanctions, and changes in OPEC policies—impact the price of Brent oil. This project will:
@@ -20,6 +21,38 @@ The primary objective of this project is to analyze how significant events such 
 3. **Provide Actionable Insights**: Deliver clear, actionable insights that will assist investors, policymakers, and energy companies in understanding and responding to these price changes effectively.
 
 By tackling this issue, Birhan Energies aims to empower its clients to make informed decisions, manage risks more efficiently, and optimize strategies for investment, policy development, and operational planning within the energy sector.
+
+
+## Technologies and Tools Used
+
+- **Programming Languages & Frameworks**: 
+  - Python
+- **Data Analysis & Manipulation**:
+  - Pandas
+  - NumPy
+  - Matplotlib
+  - Plotly
+  - Jupyter Notebook
+
+- **Machine Learning & Modeling**:
+  - Scikit-learn
+  - PyMC3
+  - LSTM
+  - ARIMA (AutoRegressive Integrated Moving Average)
+
+- **Statistical Techniques**:
+  - Bayesian Inference
+  - Probability Distributions
+  - Statistical Modeling
+  - Bayesian Modeling
+
+- **Development Practices**:
+  - Continuous Integration/Continuous Deployment (CI/CD)
+  - Version Control with Git
+
+- **Analysis Techniques**:
+  - Exploratory Data Analysis (EDA)
+  - Policy Analysis
 
 ## Exploratory Data Analysis (EDA)
 
