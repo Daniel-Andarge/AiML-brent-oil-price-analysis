@@ -23,6 +23,10 @@ By tackling this issue, Birhan Energies aims to empower its clients to make info
 
 ## Exploratory Data Analysis (EDA)
 
+This section provides an in-depth Exploratory Data Analysis (EDA) of the Brent oil price dataset. To access the complete EDA, please click the link below:
+
+[View Full EDA Notebook](https://github.com/Daniel-Andarge/AiML-brent-oil-price-analysis/blob/main/notebooks/eda.ipynb)
+
 ## Statistical and Econometric Models to Refine the Analysis
 
 #### ARIMA model to the Brent oil prices data
