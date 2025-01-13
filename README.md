@@ -3,12 +3,23 @@
 This project analyzes Brent oil prices from 1987-2022, detecting structural changes and associating them with major events to provide data-driven insights for the energy industry.
 
 ## Table of Contents
+1. [Project Objective](#project-objective)
+2. [Exploratory Data Analysis EDA](#exploratory-data-analysis-eda)
+3. [Statistical and Econometric Models to Refine the Analysis](#statistical-and-econometric-models-to-refine-the-analysis)
+4. [Other Potential Factors Influencing Oil Prices](#other-potential-factors-influencing-oil-prices)
+5. [Contributing](#contributing)
+6. [License](#license)
 
-1. [Exploratory Data Analysis EDA](#exploratory-data-analysis-eda)
-2. [Statistical and Econometric Models to Refine the Analysis](#statistical-and-econometric-models-to-refine-the-analysis)
-3. [Other Potential Factors Influencing Oil Prices](#other-potential-factors-influencing-oil-prices)
-4. [Contributing](#contributing)
-5. [License](#license)
+## Project Objective
+The primary objective of this project is to analyze how significant events such as political decisions, conflicts in oil-producing regions, global economic sanctions, and changes in OPEC policies—impact the price of Brent oil. This project will:
+
+1. **Identify Key Events**: Pinpoint the major events over the past decade that have significantly influenced Brent oil prices.
+  
+2. **Measure Impact**: Assess the degree to which these events contribute to price fluctuations.
+
+3. **Provide Actionable Insights**: Deliver clear, actionable insights that will assist investors, policymakers, and energy companies in understanding and responding to these price changes effectively.
+
+By tackling this issue, Birhan Energies aims to empower its clients to make informed decisions, manage risks more efficiently, and optimize strategies for investment, policy development, and operational planning within the energy sector.
 
 ## Exploratory Data Analysis (EDA)
 
