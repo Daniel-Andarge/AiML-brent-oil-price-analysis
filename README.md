@@ -8,8 +8,9 @@ This project analyzes Brent oil prices from 1987-2022, detecting structural chan
 3. [Exploratory Data Analysis EDA](#exploratory-data-analysis-eda)
 4. [Statistical and Econometric Models to Refine the Analysis](#statistical-and-econometric-models-to-refine-the-analysis)
 5. [Other Potential Factors Influencing Oil Prices](#other-potential-factors-influencing-oil-prices)
-6. [Contributing](#contributing)
-7. [License](#license)
+6. [Project Report](#project-report)
+7. [Contributing](#contributing)
+8. [License](#license)
 
 ## Project Objective
 The primary objective of this project is to analyze how significant events such as political decisions, conflicts in oil-producing regions, global economic sanctions, and changes in OPEC policies—impact the price of Brent oil. This project will:
@@ -101,6 +102,10 @@ Filtering the data points after 2012 and analyzing the correlation
 <img src="https://github.com/Daniel-Andarge/AiML-brent-oil-price-analysis/blob/main/assets/eda/corr_oil_renawable.png" alt="correlation plot" width="600"/>
 
 <img src="https://github.com/Daniel-Andarge/AiML-brent-oil-price-analysis/blob/main/assets/model/reg_line_oil_renawable.png" alt="correlation plot" />
+
+## Project Report
+
+For a comprehensive overview of the project, please refer to the project report: [Project Report PDF](https://drive.google.com/file/d/1QDG8gLJMfiz4OKmkwy4Q8KkTpWHHDuAR/view).
 
 ## Contributing
 
